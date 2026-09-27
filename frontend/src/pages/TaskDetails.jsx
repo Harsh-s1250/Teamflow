@@ -119,7 +119,7 @@ export default function TaskDetails() {
   if (status === "loading") return <div className="page"><LoadingState label="Loading task…" /></div>;
   if (status === "error") return <div className="page"><ErrorState message={error} onRetry={load} /></div>;
 
-  const otherProjectTasks = (window.__tf_allTasks || []).filter((t) => t.id !== task.id
+  const otherProjectTasks = projectTasks.filter((t) => t.id !== task.id
     && !dependencies.some((d) => d.dependsOnTaskId === t.id));
 
   return (
